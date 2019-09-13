@@ -70,6 +70,17 @@ class PasswordField: UIControl {
         passwordTextField.bottomAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: -8).isActive = true
         passwordTextField.placeholder = "Enter Your Password"
         
+        //show or hide button
+        passWordContainerView.addSubview(showHideButton)
+        showHideButton.translatesAutoresizingMaskIntoConstraints = false
+        showHideButton.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.topAnchor, multiplier: 1.0).isActive = true
+        showHideButton.trailingAnchor.constraint(equalTo: passWordContainerView.trailingAnchor, constant: -8).isActive = true
+        showHideButton.bottomAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: -8).isActive = true
+        let image = UIImage.init(named: "eyes-closed")
+        showHideButton.setImage(image!, for: .normal)
+    }
+    
+    @IBAction func toggleView(_ sender: UIButton){
         
     }
     
