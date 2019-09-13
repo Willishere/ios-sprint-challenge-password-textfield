@@ -90,8 +90,10 @@ class PasswordField: UIControl {
         weakView.topAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: 8).isActive = true
         weakView.frame.size = colorViewSize
         weakView.backgroundColor = unusedColor
+        
 //        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 0, length: 9), replacementString: passwordTextField.text!  ){
 //            weakView.backgroundColor = weakColor
+ //             strengthDescriptionLabel.text = "Weak"
 //
 //        }
         
@@ -105,6 +107,7 @@ class PasswordField: UIControl {
         mediumView.backgroundColor = unusedColor
 //        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 10, length: 19), replacementString: passwordTextField.text! ){
 //            mediumView.backgroundColor = mediumColor
+//              strengthDescriptionLabel.text = "Medium"
 //        }
         
         
@@ -117,9 +120,15 @@ class PasswordField: UIControl {
         strongView.backgroundColor = unusedColor
 //        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 20, length: 30), replacementString: passwordTextField.text! ){
 //            strongView.backgroundColor = strongColor
+//              strengthDescriptionLabel.text = "Strong"
 //        }
         
-        
+        //strengthDescriptionLabel
+        addSubview(strengthDescriptionLabel)
+        strengthDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        strengthDescriptionLabel.leadingAnchor.constraint(equalTo: strongView.trailingAnchor, constant: 5)
+        strengthDescriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0)
+        strengthDescriptionLabel.text = "Too Weak"
         
         
     }
