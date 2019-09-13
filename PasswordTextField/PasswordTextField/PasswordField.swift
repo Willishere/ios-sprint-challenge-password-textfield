@@ -31,7 +31,8 @@ class PasswordField: UIControl {
     private let strongColor = UIColor(hue: 132/360.0, saturation: 60/100.0, brightness: 75/100.0, alpha: 1)
     
     private var titleLabel: UILabel = UILabel()
-    private var textField: UITextField = UITextField()
+    private var passwordTextField: UITextField = UITextField()
+    private var passWordContainerView: UIView = UIView()
     private var showHideButton: UIButton = UIButton()
     private var weakView: UIView = UIView()
     private var mediumView: UIView = UIView()
@@ -43,6 +44,33 @@ class PasswordField: UIControl {
         
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 150).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        titleLabel.text = "Enter Password"
+        titleLabel.font = UIFont.systemFont(ofSize: 18.0, weight: .light)
+        
+        //password container
+        addSubview(passWordContainerView)
+        passWordContainerView.translatesAutoresizingMaskIntoConstraints = false
+        passWordContainerView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
+        passWordContainerView.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 1.0).isActive = true
+        passWordContainerView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
+        passWordContainerView.heightAnchor.constraint(equalToConstant: textFieldContainerHeight).isActive = true
+        passWordContainerView.layer.borderColor = UIColor.blue.cgColor
+        passWordContainerView.layer.borderWidth = 2.0
+        passWordContainerView.layer.cornerRadius = 7.0
+        
+        //textField
+        passWordContainerView.addSubview(passwordTextField)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.leadingAnchor.constraint(equalTo: passWordContainerView.leadingAnchor, constant: 8).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: passWordContainerView.topAnchor, constant: 8).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: passWordContainerView.trailingAnchor, constant: -8).isActive = true
+        passwordTextField.bottomAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: -8).isActive = true
+        passwordTextField.placeholder = "Enter Your Password"
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
