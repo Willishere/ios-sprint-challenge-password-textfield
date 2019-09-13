@@ -82,6 +82,22 @@ class PasswordField: UIControl {
         passwordTextField.isSecureTextEntry = true
         showHideButton.setImage(image!, for: .normal)
         showHideButton.addTarget(self, action: #selector(buttonShow), for: .touchUpInside )
+        
+        //weakView
+        addSubview(weakView)
+        weakView.translatesAutoresizingMaskIntoConstraints = false
+        weakView.leadingAnchor.constraint(equalTo: passWordContainerView.leadingAnchor).isActive = true
+        weakView.topAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: 8).isActive = true
+        weakView.frame.size = colorViewSize
+        weakView.layer.borderColor = UIColor.black.cgColor
+        weakView.backgroundColor = weakColor
+       
+        
+        //mediumView
+//        addSubview(mediumView)
+//        mediumView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
     }
     
     @objc func buttonShow(){
