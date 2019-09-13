@@ -39,6 +39,8 @@ class PasswordField: UIControl {
     private var strongView: UIView = UIView()
     private var strengthDescriptionLabel: UILabel = UILabel()
     
+    var isOpen = true
+    
     func setup() {
         // Lay out your subviews here
         
@@ -77,12 +79,26 @@ class PasswordField: UIControl {
         showHideButton.trailingAnchor.constraint(equalTo: passWordContainerView.trailingAnchor, constant: -8).isActive = true
         showHideButton.bottomAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: -8).isActive = true
         let image = UIImage.init(named: "eyes-closed")
+        passwordTextField.isSecureTextEntry = true
         showHideButton.setImage(image!, for: .normal)
+        showHideButton.addTarget(self, action: #selector(buttonShow), for: .touchUpInside )
     }
     
-    @IBAction func toggleView(_ sender: UIButton){
+    @objc func buttonShow(){
+        if isOpen{
+            passwordTextField.isSecureTextEntry = false
+            let image = UIImage.init(named: "eyes-open")
+            showHideButton.setImage(image!, for: .normal)
+        }else {
+            passwordTextField.isSecureTextEntry = true
+            let image = UIImage.init(named: "eyes-closed")
+            showHideButton.setImage(image!, for: .normal)
+        }
         
+        isOpen = !isOpen
     }
+    
+  
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
