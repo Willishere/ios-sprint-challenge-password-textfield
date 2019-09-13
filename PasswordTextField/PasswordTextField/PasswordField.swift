@@ -90,7 +90,10 @@ class PasswordField: UIControl {
         weakView.topAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: 8).isActive = true
         weakView.frame.size = colorViewSize
         weakView.backgroundColor = unusedColor
-         if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 0, length: 9), replacementString: )
+        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 0, length: 9), replacementString: passwordTextField.text!  ){
+            weakView.backgroundColor = weakColor
+            
+        }
         
         
         //mediumView
@@ -100,15 +103,22 @@ class PasswordField: UIControl {
         mediumView.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0).isActive = true
         mediumView.frame.size = colorViewSize
         mediumView.backgroundColor = unusedColor
+        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 10, length: 19), replacementString: passwordTextField.text! ){
+            mediumView.backgroundColor = mediumColor
+        }
+        
         
         //strongView
         addSubview(strongView)
         strongView.translatesAutoresizingMaskIntoConstraints = false
-        strongView.leadingAnchor.constraint(equalTo: mediumView.trailingAnchor, constant: 5)
-        strongView.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0)
+        strongView.leadingAnchor.constraint(equalTo: mediumView.trailingAnchor, constant: 5).isActive = true
+        strongView.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0).isActive = true
         strongView.frame.size = colorViewSize
         strongView.backgroundColor = unusedColor
-       
+        if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 20, length: 30), replacementString: passwordTextField.text! ){
+            strongView.backgroundColor = strongColor
+        }
+        
         
         
         
