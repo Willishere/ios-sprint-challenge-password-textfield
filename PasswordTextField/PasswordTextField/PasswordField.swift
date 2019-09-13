@@ -89,13 +89,27 @@ class PasswordField: UIControl {
         weakView.leadingAnchor.constraint(equalTo: passWordContainerView.leadingAnchor).isActive = true
         weakView.topAnchor.constraint(equalTo: passWordContainerView.bottomAnchor, constant: 8).isActive = true
         weakView.frame.size = colorViewSize
-        weakView.layer.borderColor = UIColor.black.cgColor
-        weakView.backgroundColor = weakColor
-       
+        weakView.backgroundColor = unusedColor
+         if textField(passwordTextField, shouldChangeCharactersIn: NSRange(location: 0, length: 9), replacementString: )
+        
         
         //mediumView
-//        addSubview(mediumView)
-//        mediumView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(mediumView)
+        mediumView.translatesAutoresizingMaskIntoConstraints = false
+        mediumView.leadingAnchor.constraint(equalTo: weakView.trailingAnchor, constant: 5).isActive = true
+        mediumView.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0).isActive = true
+        mediumView.frame.size = colorViewSize
+        mediumView.backgroundColor = unusedColor
+        
+        //strongView
+        addSubview(strongView)
+        strongView.translatesAutoresizingMaskIntoConstraints = false
+        strongView.leadingAnchor.constraint(equalTo: mediumView.trailingAnchor, constant: 5)
+        strongView.topAnchor.constraint(equalToSystemSpacingBelow: passWordContainerView.bottomAnchor, multiplier: 1.0)
+        strongView.frame.size = colorViewSize
+        strongView.backgroundColor = unusedColor
+       
+        
         
         
     }
